@@ -1,7 +1,6 @@
 package com.pillar.test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -36,6 +35,8 @@ public class ShiftTest {
 	public void startTimeMustBeInRange() {
 		shift.setStartTime(25);
 		assertEquals(0, shift.getStartTime());
+		shift.setStartTime(-3);
+		assertEquals(0, shift.getStartTime());
 	}
 	
 	@Test
@@ -47,6 +48,8 @@ public class ShiftTest {
 	@Test
 	public void endTimeMustBeInRange() {
 		shift.setEndTime(22);
+		assertEquals(0, shift.getEndTime());
+		shift.setEndTime(-3);
 		assertEquals(0, shift.getEndTime());
 	}
 	

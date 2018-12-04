@@ -22,7 +22,7 @@ public class Shift {
 
 	public void setEndTime(int endTime) {
 		this.endTime = endTime;
-		if(endTime > 12) {
+		if(endTime > 12 || endTime < 1) {
 			this.endTime = 0;
 		}
 	}
