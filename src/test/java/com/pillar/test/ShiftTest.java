@@ -41,4 +41,10 @@ public class ShiftTest {
 		assertNotEquals(-5, shift.calculateTotalHours());
 		assertEquals(7, shift.calculateTotalHours());
 	}
+	
+	@Test
+	public void doNotAllowStartToBeEarlierThan5PM() {
+		shift.setStartTime(1);
+		assertEquals(0, shift.getStartTime());
+	}
 }

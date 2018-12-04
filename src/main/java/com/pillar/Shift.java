@@ -9,7 +9,11 @@ public class Shift {
 	}
 
 	public void setStartTime(int startTime) {
-		this.startTime = startTime;
+		if(startTime >= 5) {
+			this.startTime = startTime;
+		}else {
+			this.startTime = 0;
+		}
 	}
 
 	public int getEndTime() {
