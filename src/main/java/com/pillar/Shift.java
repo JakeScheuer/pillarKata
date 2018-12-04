@@ -21,7 +21,11 @@ public class Shift {
 	}
 	
 	public int calculateTotalHours() {
-		return this.endTime - this.startTime;
+		int totalTime = this.endTime - this.startTime;
+		if(totalTime < 0) {
+			totalTime = this.endTime + (12-this.startTime);
+		}
+		return totalTime;
 	}
 	
 }

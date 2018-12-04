@@ -1,6 +1,7 @@
 package com.pillar.test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -37,6 +38,7 @@ public class ShiftTest {
 	public void calculateTotalHoursIfEndTimeIsPastMidnight() {
 		shift.setStartTime(6);
 		shift.setEndTime(1);
-		assertEquals(-5, shift.calculateTotalHours());
+		assertNotEquals(-5, shift.calculateTotalHours());
+		assertEquals(7, shift.calculateTotalHours());
 	}
 }
