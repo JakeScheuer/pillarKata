@@ -22,7 +22,7 @@ public class Shift {
 
 	public void setEndTime(int endTime) {
 		this.endTime = endTime;
-		if((endTime > 12 || endTime < 1) || (endTime <= this.startTime && endTime >=5)) {
+		if((endTime > 12 || endTime < 1) || (endTime <= this.startTime && endTime >= 5)) {
 			this.endTime = 0;
 		}
 	}
@@ -31,6 +31,9 @@ public class Shift {
 		int totalTime = this.endTime - this.startTime;
 		if(totalTime < 0) {
 			totalTime = this.endTime + (12-this.startTime);
+		}
+		if (this.startTime == 0 || this.endTime == 0) {
+			totalTime = 0;
 		}
 		return totalTime;
 	}

@@ -73,4 +73,17 @@ public class ShiftTest {
 		shift.setEndTime(1);
 		assertEquals(7, shift.calculateTotalHours());
 	}
+	
+	@Test
+	public void verifyTotalHoursToBeZeroIfStartAndOrEndTimesAreSetToZero() {
+		shift.setStartTime(2);
+		shift.setEndTime(10);
+		assertEquals(0, shift.calculateTotalHours());
+		shift.setStartTime(5);
+		shift.setEndTime(5);
+		assertEquals(0, shift.calculateTotalHours());
+		shift.setStartTime(2);
+		shift.setEndTime(5);
+		assertEquals(0, shift.calculateTotalHours());
+	}
 }
