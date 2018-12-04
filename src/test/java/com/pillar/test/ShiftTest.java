@@ -11,4 +11,11 @@ public class ShiftTest {
 		shift.setStartTime(5);
 		assertEquals(5, shift.getStartTime());
 	}
+	
+	@Test
+	public void testSetAndGetEndTime() {
+		Shift shift = new Shift();
+		shift.setEndTime(10);
+		assertEquals(10, shift.getEndTime());
+	}
 }
