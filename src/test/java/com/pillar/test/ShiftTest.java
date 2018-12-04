@@ -47,4 +47,10 @@ public class ShiftTest {
 		shift.setStartTime(1);
 		assertEquals(0, shift.getStartTime());
 	}
+	
+	@Test
+	public void startTimeCannotBeMidnightSinceItIsAmWhichIsEarlierThan5Pm() {
+		shift.setStartTime(12);
+		assertEquals(0, shift.getStartTime());
+	}
 }
