@@ -1,29 +1,42 @@
 package com.pillar.test;
 
 import static org.junit.Assert.assertEquals;
+
+import org.junit.Before;
 import org.junit.Test;
 import com.pillar.Shift;
 
 public class ShiftTest {
+	Shift shift;
+	
+	@Before
+	public void setup() {
+		shift = new Shift();
+	}
+	
 	@Test
 	public void testSetAndGetStartTime() {
-		Shift shift = new Shift();
 		shift.setStartTime(5);
 		assertEquals(5, shift.getStartTime());
 	}
 	
 	@Test
 	public void testSetAndGetEndTime() {
-		Shift shift = new Shift();
 		shift.setEndTime(10);
 		assertEquals(10, shift.getEndTime());
 	}
 	
 	@Test
 	public void calculateTotalHoursByTakingDifferenceOfStartAndEndTimes() {
-		Shift shift = new Shift();
 		shift.setStartTime(5);
 		shift.setEndTime(11);
 		assertEquals(6, shift.calculateTotalHours());
+	}
+	
+	@Test
+	public void calculateTotalHoursIfEndTimeIsPastMidnight() {
+		shift.setStartTime(6);
+		shift.setEndTime(1);
+		assertEquals(-5, shift.calculateTotalHours());
 	}
 }
