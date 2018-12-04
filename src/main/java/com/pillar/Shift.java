@@ -20,6 +20,8 @@ public class Shift {
 		this.endTime = endTime;
 	}
 	
-	
+	public int calculateTotalHours() {
+		return this.endTime - this.startTime;
+	}
 	
 }

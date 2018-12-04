@@ -18,4 +18,12 @@ public class ShiftTest {
 		shift.setEndTime(10);
 		assertEquals(10, shift.getEndTime());
 	}
+	
+	@Test
+	public void calculateTotalHoursByTakingDifferenceOfStartAndEndTimes() {
+		Shift shift = new Shift();
+		shift.setStartTime(5);
+		shift.setEndTime(11);
+		assertEquals(6, shift.calculateTotalHours());
+	}
 }
