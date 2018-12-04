@@ -20,6 +20,23 @@ public class ShiftTest {
 		shift.setStartTime(5);
 		assertEquals(5, shift.getStartTime());
 	}
+	@Test
+	public void doNotAllowStartToBeEarlierThan5PM() {
+		shift.setStartTime(1);
+		assertEquals(0, shift.getStartTime());
+	}
+	
+	@Test
+	public void startTimeCannotBeMidnightSinceItIsConsideredEarlierThan5Pm() {
+		shift.setStartTime(12);
+		assertEquals(0, shift.getStartTime());
+	}
+	
+	@Test 
+	public void startTimeMustBeInRange() {
+		shift.setStartTime(25);
+		assertEquals(0, shift.getStartTime());
+	}
 	
 	@Test
 	public void testSetAndGetEndTime() {
@@ -38,19 +55,7 @@ public class ShiftTest {
 	public void calculateTotalHoursIfEndTimeIsPastMidnight() {
 		shift.setStartTime(6);
 		shift.setEndTime(1);
-		assertNotEquals(-5, shift.calculateTotalHours());
 		assertEquals(7, shift.calculateTotalHours());
 	}
 	
-	@Test
-	public void doNotAllowStartToBeEarlierThan5PM() {
-		shift.setStartTime(1);
-		assertEquals(0, shift.getStartTime());
-	}
-	
-	@Test
-	public void startTimeCannotBeMidnightSinceItIsAmWhichIsEarlierThan5Pm() {
-		shift.setStartTime(12);
-		assertEquals(0, shift.getStartTime());
-	}
 }
