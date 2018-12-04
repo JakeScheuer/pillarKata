@@ -63,5 +63,4 @@ public class ShiftTest {
 		shift.setEndTime(1);
 		assertEquals(7, shift.calculateTotalHours());
 	}
-	
 }
