@@ -22,6 +22,9 @@ public class Shift {
 
 	public void setEndTime(int endTime) {
 		this.endTime = endTime;
+		if(endTime > 12) {
+			this.endTime = 0;
+		}
 	}
 	
 	public int calculateTotalHours() {

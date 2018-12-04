@@ -45,6 +45,12 @@ public class ShiftTest {
 	}
 	
 	@Test
+	public void endTimeMustBeInRange() {
+		shift.setEndTime(22);
+		assertEquals(0, shift.getEndTime());
+	}
+	
+	@Test
 	public void calculateTotalHoursByTakingDifferenceOfStartAndEndTimes() {
 		shift.setStartTime(5);
 		shift.setEndTime(11);
