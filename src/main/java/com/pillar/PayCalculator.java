@@ -2,7 +2,7 @@ package com.pillar;
 
 public class PayCalculator {
 	
-	int payOut;
+	private int payOut;
 	
 	public int calculatePay(Family family, Shift shift) {
 		
@@ -21,5 +21,4 @@ public class PayCalculator {
 	public void resetPayOut() {
 		this.payOut = 0;
 	}
-
 }

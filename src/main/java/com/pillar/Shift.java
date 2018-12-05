@@ -1,8 +1,8 @@
 package com.pillar;
 
 public class Shift {
-	int startTime;
-	int endTime;
+	private int startTime;
+	private int endTime;
 
 	public int getStartTime() {
 		return startTime;
