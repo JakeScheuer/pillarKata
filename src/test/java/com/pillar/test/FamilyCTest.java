@@ -43,5 +43,11 @@ public class FamilyCTest {
 		shift.setEndTime(12);
 		assertEquals(129, familyC.calculatePay(shift));
 	}
+	@Test
+	public void testCalculatePayForFamilyCBothRatesTill4() {
+		shift.setStartTime(5);
+		shift.setEndTime(4);
+		assertEquals(189, familyC.calculatePay(shift));
+	}
 
 }

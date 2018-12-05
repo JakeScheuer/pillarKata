@@ -8,7 +8,7 @@ public class FamilyC implements Payable{
 	@Override
 	public int calculatePay(Shift shift) {
 		int hoursBefore9 = 9 - shift.getStartTime();
-		int hoursAfter9 = shift.getEndTime() + (12-shift.getStartTime());
+		int hoursAfter9 = shift.getEndTime() + 3;
 		if(shift.getStartTime() < 9) {
 			this.payOut += hoursBefore9 * rates[0]; 
 		}
