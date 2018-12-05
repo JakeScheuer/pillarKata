@@ -11,4 +11,8 @@ public class Menu {
 		display += "\n\nPlease choose which family you'll be working for >>> ";
 		return display;
 	}
+	public String displayStartTimePrompt() {
+		String display = "What is your start time? >>> ";
+		return display;
+	}
 }

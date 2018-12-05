@@ -8,7 +8,7 @@ import com.pillar.Menu;
 public class MenuTest {
 	
 	@Test
-	public void displayListOfMenuOptionsAndPromptsUserToMakeChoice() {
+	public void testDisplayListOfMenuOptions() {
 		Object[] options = new Object[] {"Family A","Family B","Family C"};
 		Menu menu = new Menu();
 		String result = menu.displayOptions(options);
@@ -19,5 +19,11 @@ public class MenuTest {
 				  "Please choose which family you'll be working for >>> ";
 		Assert.assertEquals(expected, result);
 	}
-
+	@Test
+	public void testDisplayInputPrompts() {
+		Menu menu = new Menu();
+		String result = menu.displayStartTimePrompt();
+		String expected = "What is your start time? >>> ";
+		Assert.assertEquals(expected, result);
+	}
 }
