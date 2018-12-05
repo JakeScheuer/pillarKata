@@ -61,7 +61,7 @@ public class MenuTest {
 	public void validateStartTimeInput() {
 		Menu menu = getMenuForTestingWithUserInput("7\n");
 		menu.getStartTimeFromUserInput();
-		Assert.assertEquals(7, menu.shift.getStartTime());
+		Assert.assertEquals(7, menu.getShift().getStartTime());
 	}
 	
 	private Menu getMenuForTestingWithUserInput(String userInput) {

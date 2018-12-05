@@ -11,7 +11,7 @@ public class Menu {
 	private PrintWriter out;
 	private Scanner in;
 	private Object family;
-	public Shift shift;
+	private Shift shift;
 	
 	public Menu(InputStream input, OutputStream output) {
 		this.in = new Scanner(input);
@@ -57,5 +57,8 @@ public class Menu {
 			startTime = in.nextInt();
 		}
 		this.shift.setStartTime(startTime);
+	}
+	public Shift getShift() {
+		return this.shift;
 	}
 }
