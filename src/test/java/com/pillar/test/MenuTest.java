@@ -63,6 +63,12 @@ public class MenuTest {
 		menu.getStartTimeFromUserInput();
 		Assert.assertEquals(7, menu.getShift().getStartTime());
 	}
+	@Test
+	public void validateEndTimeInput() {
+		Menu menu = getMenuForTestingWithUserInput("10\n");
+		menu.getEndTimeFromUserInput();
+		Assert.assertEquals(10, menu.getShift().getEndTime());
+	}
 	
 	private Menu getMenuForTestingWithUserInput(String userInput) {
 		ByteArrayInputStream input = new ByteArrayInputStream(String.valueOf(userInput).getBytes());

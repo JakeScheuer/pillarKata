@@ -58,6 +58,14 @@ public class Menu {
 		}
 		this.shift.setStartTime(startTime);
 	}
+	public void getEndTimeFromUserInput() {
+		Integer endTime = null;
+		while(endTime == null) {
+			displayEndTimePrompt();
+			endTime = in.nextInt();
+		}
+		this.shift.setEndTime(endTime);
+	}
 	public Shift getShift() {
 		return this.shift;
 	}
