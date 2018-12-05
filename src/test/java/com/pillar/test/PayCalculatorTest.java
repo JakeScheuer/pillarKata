@@ -10,13 +10,15 @@ import com.pillar.Shift;
 
 public class PayCalculatorTest {
 	@Test
-	public void testCalculateRateA1() {
+	public void testCalculateRateFamilyAOneRateOnly() {
 		Family family = new Family();
 		Shift shift = new Shift();
 		PayCalculator payCalculator = new PayCalculator();
+		family.setFamilyName("A");
 		shift.setStartTime(5);
 		shift.setEndTime(11);
 		assertEquals(90, payCalculator.calculatePay(family, shift));
 	}
+
 
 }
