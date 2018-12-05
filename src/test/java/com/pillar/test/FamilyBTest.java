@@ -25,7 +25,6 @@ public class FamilyBTest {
 		shift.setEndTime(10);
 		assertEquals(60, familyB.calculatePay(shift));
 	}
-	
 	@Test
 	public void testCalculatePayForFamilyBFirstTwoRates() {
 		shift.setStartTime(5);
