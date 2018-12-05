@@ -57,6 +57,12 @@ public class MenuTest {
 		Object result = menu.getChoiceFromOptions(options);
 		Assert.assertEquals("Colbert", result.toString());
 	}
+	@Test
+	public void validateStartTimeInput() {
+		Menu menu = getMenuForTestingWithUserInput("7\n");
+		menu.getStartTimeFromUserInput();
+		Assert.assertEquals(7, menu.shift.getStartTime());
+	}
 	
 	private Menu getMenuForTestingWithUserInput(String userInput) {
 		ByteArrayInputStream input = new ByteArrayInputStream(String.valueOf(userInput).getBytes());
