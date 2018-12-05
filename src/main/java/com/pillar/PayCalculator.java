@@ -15,6 +15,10 @@ public class PayCalculator {
 				this.payOut += hoursAfter11 * family.getRate(1);
 			}
 		}
+		if(family.getFamilyName().equals("B")) {
+			int hoursBefore10 = 10 - shift.getStartTime();
+			this.payOut += hoursBefore10 * family.getRate(2);
+		}
 		return payOut;
 	}
 	
