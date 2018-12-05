@@ -34,6 +34,9 @@ public class PayCalculatorTest {
 		shift.setStartTime(5);
 		shift.setEndTime(12);
 		assertEquals(110, payCalculator.calculatePay(family, shift));
+		payCalculator.resetPayOut();
+		shift.setEndTime(3);
+		assertEquals(170, payCalculator.calculatePay(family, shift));
 	}
 
 }

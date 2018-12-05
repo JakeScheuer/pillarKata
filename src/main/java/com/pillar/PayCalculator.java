@@ -17,5 +17,9 @@ public class PayCalculator {
 		}
 		return payOut;
 	}
+	
+	public void resetPayOut() {
+		this.payOut = 0;
+	}
 
 }
