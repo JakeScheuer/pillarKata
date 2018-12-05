@@ -45,5 +45,13 @@ public class PayCalculatorTest {
 		shift.setEndTime(10);
 		assertEquals(60, payCalculator.calculatePay(family, shift));
 	}
+	
+	@Test
+	public void testCalculatePayForFamilyBFirstTwoRates() {
+		family.setFamilyName("B");
+		shift.setStartTime(5);
+		shift.setEndTime(12);
+		assertEquals(76, payCalculator.calculatePay(family, shift));
+	}
 
 }
