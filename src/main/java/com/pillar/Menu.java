@@ -15,4 +15,8 @@ public class Menu {
 		String display = "What is your start time? >>> ";
 		return display;
 	}
+	public String displayEndTimePrompt() {
+		String display = "What is your end time? >>> ";
+		return display;
+	}
 }
