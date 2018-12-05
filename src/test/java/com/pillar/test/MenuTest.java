@@ -13,9 +13,9 @@ public class MenuTest {
 		Menu menu = new Menu();
 		String result = menu.displayOptions(options);
 		String expected = "\n"+
-		 		  "1) "+options[0].toString()+"\n" + 
-				  "2) "+options[1].toString()+"\n" +
-				  "3) "+options[2].toString()+"\n\n" +
+		 		  "1) "+options[0]+"\n" + 
+				  "2) "+options[1]+"\n" +
+				  "3) "+options[2]+"\n\n" +
 				  "Please choose which family you'll be working for >>> ";
 		Assert.assertEquals(expected, result);
 	}
