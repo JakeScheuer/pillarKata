@@ -10,12 +10,12 @@ public class FamilyTest {
 	@Test
 	public void testGetRateBefore11() {
 		Family family = new Family();
-		assertEquals(15, family.getRateBefore11());
+		assertEquals(15, family.getRate(0));
 	}
 	@Test
 	public void testGetRateAfter11() {
 		Family family = new Family();
-		assertEquals(20, family.getRateAfter11());
+		assertEquals(20, family.getRate(1));
 	}
 
 }

@@ -2,11 +2,10 @@ package com.pillar;
 
 public class Family {
 	
-	public int getRateBefore11() {
-		return 15;
-	}
-	public int getRateAfter11() {
-		return 20;
+	int[] rates = new int[] {15, 20};
+	
+	public int getRate(int timeFrame) {
+		return rates[timeFrame];
 	}
 
 }
