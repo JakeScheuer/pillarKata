@@ -17,5 +17,11 @@ public class FamilyTest {
 		Family family = new Family();
 		assertEquals(20, family.getRate(1));
 	}
+	@Test
+	public void verifySetAndGetFamilyName() {
+		Family family = new Family();
+		family.setFamilyName("A");
+		assertEquals("A",family.getFamilyName());
+	}
 
 }
