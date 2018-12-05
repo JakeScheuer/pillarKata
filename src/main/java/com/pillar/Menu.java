@@ -19,4 +19,8 @@ public class Menu {
 		String display = "What is your end time? >>> ";
 		return display;
 	}
+	public String displayResult() {
+		String display = "Working for Family A from 5 to 11 will earn you $90";
+		return display;
+	}
 }

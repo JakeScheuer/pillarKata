@@ -38,4 +38,10 @@ public class MenuTest {
 		String expected = "What is your end time? >>> ";
 		Assert.assertEquals(expected, result);
 	}
+	@Test
+	public void testDisplayResults() {
+		String result = menu.displayResult();
+		String expected = "Working for Family A from 5 to 11 will earn you $90";
+		Assert.assertEquals(expected, result);
+	}
 }
