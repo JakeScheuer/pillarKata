@@ -18,9 +18,15 @@ public class PayCalculator {
 		if(family.getFamilyName().equals("B")) {
 			int hoursBetween10And12 = shift.getEndTime() - 10;
 			int hoursBefore10 = 10 - shift.getStartTime();
+			int hoursAfter12 = shift.getEndTime();
 			this.payOut += hoursBefore10 * family.getRate(2);
 			
 			if(shift.getEndTime() > 10) {
+				this.payOut += hoursBetween10And12 * family.getRate(3);
+			}
+			if(shift.getEndTime() <= 4) {
+				this.payOut += hoursAfter12 * family.getRate(4);
+				hoursBetween10And12 = shift.calculateTotalHours()-hoursAfter12-hoursBefore10;
 				this.payOut += hoursBetween10And12 * family.getRate(3);
 			}
 		}
