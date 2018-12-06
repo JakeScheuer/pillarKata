@@ -54,13 +54,10 @@ public class Menu {
 		}
 		return startTime;
 	}
-	
-	
-	
-//	public void displayEndTimePrompt() {
-//		out.println("What is your end time? >>> ");
-//		out.flush();
-//	}
+	public void displayEndTimePrompt() {
+		out.println("What is your end time? >>> ");
+		out.flush();
+	}
 //	public void displayResult() {
 //		out.println("Working for Family A from 5 to 11 will earn you $90");
 //		out.flush();

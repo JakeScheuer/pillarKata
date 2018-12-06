@@ -52,15 +52,13 @@ public class MenuTest {
 		int result = menu.getStartTimeFromUserInput();
 		Assert.assertEquals(7, result);
 	}
-	
-	
-//	@Test
-//	public void testDisplayEndTimePrompt() {
-//		Menu menu = getMenuForTesting();
-//		menu.displayEndTimePrompt();
-//		String expected = "What is your end time? >>> \n";
-//		Assert.assertEquals(expected, output.toString());
-//	}
+	@Test
+	public void testDisplayEndTimePrompt() {
+		Menu menu = getMenuForTesting();
+		menu.displayEndTimePrompt();
+		String expected = "What is your end time? >>> \n";
+		Assert.assertEquals(expected, output.toString());
+	}
 //	@Test
 //	public void testDisplayResults() {
 //		Menu menu = getMenuForTesting();
