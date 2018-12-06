@@ -7,10 +7,18 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.pillar.FamilyA;
+import com.pillar.FamilyB;
+import com.pillar.FamilyC;
 import com.pillar.Menu;
 
 public class MenuTest {
 	private ByteArrayOutputStream output;
+	
+//	@Override						--->override toString in order to reflect desired output in cli.
+//	private String toString() {			using output.toString for first test results in toString being called twice
+//										once in the menu class for actual output and again to check results
+//	}									Still in class ByteArrayOutputStream	
 	
 	@Before
 	public void setup() {
@@ -19,36 +27,39 @@ public class MenuTest {
 	
 	@Test
 	public void testDisplayListOfMenuOptions() {
-		Object[] options = new Object[] {"Family A","Family B","Family C"};
+		FamilyA  famA = new FamilyA();
+		FamilyB  famB = new FamilyB();
+		FamilyC  famC = new FamilyC();
+		Object[] options = new Object[] {famA, famB, famC};
 		Menu menu = getMenuForTesting();
 		menu.getChoiceFromOptions(options);
 		String expected = "\n"+
-		 		  "1) "+options[0]+"\n" + 
-				  "2) "+options[1]+"\n" +
-				  "3) "+options[2]+"\n\n" +
+		 		  "1) Family A\n" + 
+				  "2) Family B\n" +
+				  "3) Family C\n\n" +
 				  "Please choose which family you'll be working for >>> ";
-		Assert.assertEquals(expected, output.toString());
+		Assert.assertEquals(expected, output);
 	}
 	@Test
 	public void testDisplayStartTimePrompt() {
 		Menu menu = getMenuForTesting();
-		String result = menu.displayStartTimePrompt();
-		String expected = "What is your start time? >>> ";
-		Assert.assertEquals(expected, result);
+		menu.displayStartTimePrompt();
+		String expected = "What is your start time? >>> \n";
+		Assert.assertEquals(expected, output.toString());
 	}
 	@Test
 	public void testDisplayEndTimePrompt() {
 		Menu menu = getMenuForTesting();
-		String result = menu.displayEndTimePrompt();
-		String expected = "What is your end time? >>> ";
-		Assert.assertEquals(expected, result);
+		menu.displayEndTimePrompt();
+		String expected = "What is your end time? >>> \n";
+		Assert.assertEquals(expected, output.toString());
 	}
 	@Test
 	public void testDisplayResults() {
 		Menu menu = getMenuForTesting();
-		String result = menu.displayResult();
-		String expected = "Working for Family A from 5 to 11 will earn you $90";
-		Assert.assertEquals(expected, result);
+		menu.displayResult();
+		String expected = "Working for Family A from 5 to 11 will earn you $90\n";
+		Assert.assertEquals(expected, output.toString());
 	}
 	@Test
 	public void validateObjectAfterMakingChoice() {

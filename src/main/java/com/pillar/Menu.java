@@ -23,7 +23,9 @@ public class Menu {
 		out.println();
 		for(int i = 0; i<options.length; i++) {
 			int choiceNumber = i+1;
-			out.println(choiceNumber+") "+options[i]);
+			String name = options[i].getClass().getSimpleName();
+			String formattedName = name.substring(0, name.length()-1)+" "+name.substring(name.length()-1);
+			out.println(choiceNumber+") "+formattedName);
 		}
 		out.print("\nPlease choose which family you'll be working for >>> ");
 		out.flush();
@@ -38,6 +40,7 @@ public class Menu {
 	}
 	public void displayResult() {
 		out.println("Working for Family A from 5 to 11 will earn you $90");
+		out.flush();
 	}
 	public Object getChoiceFromOptions(Object[] options) {
 		Object choice = null;
