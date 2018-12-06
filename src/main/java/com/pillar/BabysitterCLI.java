@@ -11,13 +11,21 @@ public class BabysitterCLI {
 		this.shift = new Shift();
 	}
 	public void run() {
-		while(true) {
-			menu.displayGreeting();
-			this.family = menu.getChoiceFromOptions();
-			this.shift.setStartTime(menu.getStartTimeFromUserInput());
-			this.shift.setEndTime(menu.getEndTimeFromUserInput(this.shift.getStartTime()));
-			menu.displayResult(this.family, this.shift);
-			break;
+		menu.displayGreeting();
+		boolean running = true;
+		while(running) {
+			while(true) {
+				this.family = menu.getChoiceFromOptions();
+				this.shift.setStartTime(menu.getStartTimeFromUserInput());
+				this.shift.setEndTime(menu.getEndTimeFromUserInput(this.shift.getStartTime()));
+				menu.displayResult(this.family, this.shift);
+				if(!menu.getToRun()) {
+					menu.displayGoodbyeMessage();
+					running = false;
+					break;
+					}
+				break;
+			}
 		}
 	}
 	public static void main(String[] args) {

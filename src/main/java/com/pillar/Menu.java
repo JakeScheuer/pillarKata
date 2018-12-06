@@ -129,4 +129,8 @@ public class Menu {
 		}
 		return stayOn;
 	}
+	public void displayGoodbyeMessage() {
+		out.print("Have a Great Day!");
+		out.flush();
+	}
 }

@@ -95,6 +95,13 @@ public class MenuTest {
 		boolean toEnd = menu.getToRun();
 		Assert.assertEquals(true, toEnd);
 	}
+	@Test
+	public void testDisplayGoodbyeMessage() {
+		Menu menu = getMenuForTesting();
+		menu.displayGoodbyeMessage();
+		String expected = "Have a Great Day!";
+		Assert.assertEquals(expected, output.toString());
+	}
 	private Menu getMenuForTestingWithUserInput(String userInput) {
 		ByteArrayInputStream input = new ByteArrayInputStream(String.valueOf(userInput).getBytes());
 		return new Menu(input, output);
