@@ -10,7 +10,7 @@ public class Menu {
 
 	private PrintWriter out;
 	private Scanner in;
-//	private Shift shift;
+	private Shift shift;
 	
 	public Menu(InputStream input, OutputStream output) {
 		this.in = new Scanner(input);
@@ -46,6 +46,17 @@ public class Menu {
 		out.println("What is your start time? >>> ");
 		out.flush();
 	}
+	public int getStartTimeFromUserInput() {
+		int startTime = 0;
+		while(startTime == 0) {
+			displayStartTimePrompt();
+			startTime = in.nextInt();
+		}
+		return startTime;
+	}
+	
+	
+	
 //	public void displayEndTimePrompt() {
 //		out.println("What is your end time? >>> ");
 //		out.flush();

@@ -46,6 +46,14 @@ public class MenuTest {
 		String expected = "What is your start time? >>> \n";
 		Assert.assertEquals(expected, output.toString());
 	}
+	@Test
+	public void validateStartTimeInput() {
+		Menu menu = getMenuForTestingWithUserInput("7\n");
+		int result = menu.getStartTimeFromUserInput();
+		Assert.assertEquals(7, result);
+	}
+	
+	
 //	@Test
 //	public void testDisplayEndTimePrompt() {
 //		Menu menu = getMenuForTesting();
