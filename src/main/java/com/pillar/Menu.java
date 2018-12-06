@@ -78,11 +78,21 @@ public class Menu {
 		out.println("What is your end time? >>> ");
 		out.flush();
 	}
-	public int getEndTimeFromUserInput() {
+	public int getEndTimeFromUserInput(int startTime) {
 		int endTime = 0;
 		while(endTime == 0) {
 			displayEndTimePrompt();
-			endTime = in.nextInt();
+			String userInput = in.nextLine();
+			try {
+				int endingAt = Integer.valueOf(userInput);
+				if((endingAt > startTime && endingAt <=12) || (endingAt > 0 && endingAt <= 4)) {
+					endTime = endingAt;
+				}
+			} catch(NumberFormatException e) {
+				}
+			if(endTime == 0) {
+				out.println("\n*** "+userInput+" is not a valid option ***\n");
+			}
 		}
 		return endTime;
 	}

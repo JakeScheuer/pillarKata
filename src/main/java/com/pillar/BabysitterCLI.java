@@ -15,7 +15,7 @@ public class BabysitterCLI {
 			menu.displayGreeting();
 			this.family = menu.getChoiceFromOptions();
 			this.shift.setStartTime(menu.getStartTimeFromUserInput());
-			this.shift.setEndTime(menu.getEndTimeFromUserInput());
+			this.shift.setEndTime(menu.getEndTimeFromUserInput(this.shift.getStartTime()));
 			menu.displayResult(this.family, this.shift);
 			break;
 		}
@@ -25,5 +25,4 @@ public class BabysitterCLI {
 		BabysitterCLI cli = new BabysitterCLI(menu);
 		cli.run();
 	}
-
 }

@@ -68,7 +68,7 @@ public class MenuTest {
 	@Test
 	public void validateEndTimeInput() {
 		Menu menu = getMenuForTestingWithUserInput("10\n");
-		int result = menu.getEndTimeFromUserInput();
+		int result = menu.getEndTimeFromUserInput(5);
 		Assert.assertEquals(10, result);
 	}
 	@Test
