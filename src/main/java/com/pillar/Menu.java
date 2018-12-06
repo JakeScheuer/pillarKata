@@ -107,4 +107,26 @@ public class Menu {
 		out.println("Would you like to do another calculation? (Y/N) >>> ");
 		out.flush();
 	}
+	public boolean getToRun() {
+		boolean stayOn = true;
+		String gateKeeper = null;
+		while(gateKeeper == null) {
+			displayEndingOptions();
+			String userInput = in.nextLine();
+			try {
+				String toRun = userInput.toUpperCase();
+				if(toRun.equals("Y") || toRun.equals("N")) {
+					gateKeeper = toRun;
+				}
+			} catch(Exception e) {
+				}
+			if (gateKeeper == null) {
+				out.println("\n*** "+userInput+" is not a valid option ***\n");
+			}
+		}
+		if(gateKeeper.equals("N")) {
+			stayOn = false;
+		}
+		return stayOn;
+	}
 }

@@ -89,6 +89,12 @@ public class MenuTest {
 		String expected = "Would you like to do another calculation? (Y/N) >>> \n";
 		Assert.assertEquals(expected, output.toString());
 	}
+	@Test
+	public void validateEndingInput() {
+		Menu menu = getMenuForTestingWithUserInput("Y\n");
+		boolean toEnd = menu.getToRun();
+		Assert.assertEquals(true, toEnd);
+	}
 	private Menu getMenuForTestingWithUserInput(String userInput) {
 		ByteArrayInputStream input = new ByteArrayInputStream(String.valueOf(userInput).getBytes());
 		return new Menu(input, output);
