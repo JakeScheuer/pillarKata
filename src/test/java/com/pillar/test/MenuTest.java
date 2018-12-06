@@ -59,6 +59,14 @@ public class MenuTest {
 		String expected = "What is your end time? >>> \n";
 		Assert.assertEquals(expected, output.toString());
 	}
+	@Test
+	public void validateEndTimeInput() {
+		Menu menu = getMenuForTestingWithUserInput("10\n");
+		int result = menu.getEndTimeFromUserInput();
+		Assert.assertEquals(10, result);
+	}
+	
+	
 //	@Test
 //	public void testDisplayResults() {
 //		Menu menu = getMenuForTesting();

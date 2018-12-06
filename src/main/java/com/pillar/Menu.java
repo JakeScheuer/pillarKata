@@ -58,6 +58,14 @@ public class Menu {
 		out.println("What is your end time? >>> ");
 		out.flush();
 	}
+	public int getEndTimeFromUserInput() {
+		int endTime = 0;
+		while(endTime == 0) {
+			displayEndTimePrompt();
+			endTime = in.nextInt();
+		}
+		return endTime;
+	}
 //	public void displayResult() {
 //		out.println("Working for Family A from 5 to 11 will earn you $90");
 //		out.flush();
