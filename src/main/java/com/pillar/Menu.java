@@ -19,26 +19,25 @@ public class Menu {
 		this.shift = new Shift();
 	}
 	
-	public String displayOptions(Object[] options) {
-		String display ="";
+	public void displayOptions(Object[] options) {
+		out.println();
 		for(int i = 0; i<options.length; i++) {
 			int choiceNumber = i+1;
-			display += "\n"+choiceNumber+") "+options[i];
+			out.println(choiceNumber+") "+options[i]);
 		}
-		display += "\n\nPlease choose which family you'll be working for >>> ";
-		return display;
+		out.print("\nPlease choose which family you'll be working for >>> ");
+		out.flush();
 	}
-	public String displayStartTimePrompt() {
-		String display = "What is your start time? >>> ";
-		return display;
+	public void displayStartTimePrompt() {
+		out.println("What is your start time? >>> ");
+		out.flush();
 	}
-	public String displayEndTimePrompt() {
-		String display = "What is your end time? >>> ";
-		return display;
+	public void displayEndTimePrompt() {
+		out.println("What is your end time? >>> ");
+		out.flush();
 	}
-	public String displayResult() {
-		String display = "Working for Family A from 5 to 11 will earn you $90";
-		return display;
+	public void displayResult() {
+		out.println("Working for Family A from 5 to 11 will earn you $90");
 	}
 	public Object getChoiceFromOptions(Object[] options) {
 		Object choice = null;
@@ -68,5 +67,11 @@ public class Menu {
 	}
 	public Shift getShift() {
 		return this.shift;
+	}
+	public void displayGreeting() {
+		out.println("Welcome Babysitter!");
+		out.println("I can help you calculate your pay for one night of work!");
+		out.println();
+		out.println("Now tell me, which family will you be working for?");
 	}
 }

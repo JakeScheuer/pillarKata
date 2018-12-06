@@ -21,13 +21,13 @@ public class MenuTest {
 	public void testDisplayListOfMenuOptions() {
 		Object[] options = new Object[] {"Family A","Family B","Family C"};
 		Menu menu = getMenuForTesting();
-		String result = menu.displayOptions(options);
+		menu.getChoiceFromOptions(options);
 		String expected = "\n"+
 		 		  "1) "+options[0]+"\n" + 
 				  "2) "+options[1]+"\n" +
 				  "3) "+options[2]+"\n\n" +
 				  "Please choose which family you'll be working for >>> ";
-		Assert.assertEquals(expected, result);
+		Assert.assertEquals(expected, output.toString());
 	}
 	@Test
 	public void testDisplayStartTimePrompt() {
