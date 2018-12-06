@@ -103,4 +103,8 @@ public class Menu {
 		out.println(shift.getEndTime()+" will earn you $"+family.calculatePay(shift));
 		out.flush();
 	}
+	public void displayEndingOptions() {
+		out.println("Would you like to do another calculation? (Y/N) >>> ");
+		out.flush();
+	}
 }

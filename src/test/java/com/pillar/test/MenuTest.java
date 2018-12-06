@@ -82,6 +82,13 @@ public class MenuTest {
 		String expected = "Working for FamilyA from 5 to 11 will earn you $90\n";
 		Assert.assertEquals(expected, output.toString());
 	}
+	@Test
+	public void testDisplayEndingOptions() {
+		Menu menu = getMenuForTesting();
+		menu.displayEndingOptions();
+		String expected = "Would you like to do another calculation? (Y/N) >>> \n";
+		Assert.assertEquals(expected, output.toString());
+	}
 	private Menu getMenuForTestingWithUserInput(String userInput) {
 		ByteArrayInputStream input = new ByteArrayInputStream(String.valueOf(userInput).getBytes());
 		return new Menu(input, output);
