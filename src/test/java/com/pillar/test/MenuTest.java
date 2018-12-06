@@ -13,6 +13,7 @@ import com.pillar.FamilyA;
 import com.pillar.FamilyB;
 import com.pillar.FamilyC;
 import com.pillar.Menu;
+import com.pillar.Payable;
 
 public class MenuTest {
 	private ByteArrayOutputStream output;
@@ -32,14 +33,12 @@ public class MenuTest {
 				  "Please choose which family you'll be working for >>> ";
 		Assert.assertEquals(expected, output.toString());
 	}
-	
-//	@Test
-//	public void validateObjectAfterMakingChoice() {
-//		Object[] options = new Object[] {"Conan", "Colbert", "Falon"};
-//		Menu menu = getMenuForTestingWithUserInput("2\n");
-//		Object result = menu.getChoiceFromOptions(options);
-//		Assert.assertEquals("Colbert", result.toString());
-//	}
+	@Test
+	public void validateObjectAfterMakingChoice() {
+		Menu menu = getMenuForTestingWithUserInput("2\n");
+		Payable result = menu.getChoiceFromOptions();
+		Assert.assertEquals("FamilyB", result.getClass().getSimpleName());
+	}
 	private Menu getMenuForTestingWithUserInput(String userInput) {
 		ByteArrayInputStream input = new ByteArrayInputStream(String.valueOf(userInput).getBytes());
 		return new Menu(input, output);
