@@ -34,14 +34,21 @@ public class Menu {
 		Payable family = null;
 		while(family == null) {
 			displayOptions();
-			int choice = in.nextInt();
-			switch(choice) {
+			String choice = in.nextLine();
+			try {
+				int selectedOption =Integer.valueOf(choice);
+				switch(selectedOption) {
 				case 1: family = new FamilyA();
 				break;
 				case 2: family = new FamilyB();
 				break;
 				case 3: family = new FamilyC();
 				break;
+				}
+			} catch(NumberFormatException e) {
+				}
+			if(family == null) {
+				out.println("\n*** "+choice+" is not a valid option ***\n");
 			}
 		}
 		return family;
@@ -54,9 +61,18 @@ public class Menu {
 		int startTime = 0;
 		while(startTime == 0) {
 			displayStartTimePrompt();
-			startTime = in.nextInt();
-		}
-		return startTime;
+			String userInput = in.nextLine();
+			try {
+				int startingAt = Integer.valueOf(userInput);
+				if(startingAt >= 5 && startingAt < 12) {
+					startTime = startingAt;
+				}
+			} catch(NumberFormatException e) {
+				}
+			if(startTime == 0) {
+				out.println("\n*** "+userInput+" is not a valid option ***\n");
+			}
+		} return startTime;
 	}
 	public void displayEndTimePrompt() {
 		out.println("What is your end time? >>> ");
