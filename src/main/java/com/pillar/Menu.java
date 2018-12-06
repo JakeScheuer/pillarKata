@@ -42,14 +42,10 @@ public class Menu {
 		}
 		return family;
 	}
-	
-	
-	
-	
-//	public void displayStartTimePrompt() {
-//		out.println("What is your start time? >>> ");
-//		out.flush();
-//	}
+	public void displayStartTimePrompt() {
+		out.println("What is your start time? >>> ");
+		out.flush();
+	}
 //	public void displayEndTimePrompt() {
 //		out.println("What is your end time? >>> ");
 //		out.flush();

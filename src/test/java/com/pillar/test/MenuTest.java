@@ -39,21 +39,13 @@ public class MenuTest {
 		Payable result = menu.getChoiceFromOptions();
 		Assert.assertEquals("FamilyB", result.getClass().getSimpleName());
 	}
-	private Menu getMenuForTestingWithUserInput(String userInput) {
-		ByteArrayInputStream input = new ByteArrayInputStream(String.valueOf(userInput).getBytes());
-		return new Menu(input, output);
+	@Test
+	public void testDisplayStartTimePrompt() {
+		Menu menu = getMenuForTesting();
+		menu.displayStartTimePrompt();
+		String expected = "What is your start time? >>> \n";
+		Assert.assertEquals(expected, output.toString());
 	}
-	private Menu getMenuForTesting() {
-		return getMenuForTestingWithUserInput("1\n");
-	}
-	
-//	@Test
-//	public void testDisplayStartTimePrompt() {
-//		Menu menu = getMenuForTesting();
-//		menu.displayStartTimePrompt();
-//		String expected = "What is your start time? >>> \n";
-//		Assert.assertEquals(expected, output.toString());
-//	}
 //	@Test
 //	public void testDisplayEndTimePrompt() {
 //		Menu menu = getMenuForTesting();
@@ -88,13 +80,11 @@ public class MenuTest {
 //		menu.getEndTimeFromUserInput();
 //		Assert.assertEquals(10, menu.getShift().getEndTime());
 //	}
-//	
-//	private Menu getMenuForTestingWithUserInput(String userInput) {
-//		ByteArrayInputStream input = new ByteArrayInputStream(String.valueOf(userInput).getBytes());
-//		return new Menu(input, output);
-//	}
-//
-//	private Menu getMenuForTesting() {
-//		return getMenuForTestingWithUserInput("1\n");
-//	}
+	private Menu getMenuForTestingWithUserInput(String userInput) {
+		ByteArrayInputStream input = new ByteArrayInputStream(String.valueOf(userInput).getBytes());
+		return new Menu(input, output);
+	}
+	private Menu getMenuForTesting() {
+		return getMenuForTestingWithUserInput("1\n");
+	}
 }
