@@ -2,16 +2,11 @@ package com.pillar.test;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.PrintWriter;
-import java.util.Scanner;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.pillar.FamilyA;
-import com.pillar.FamilyB;
-import com.pillar.FamilyC;
 import com.pillar.Menu;
 import com.pillar.Payable;
 
@@ -21,6 +16,15 @@ public class MenuTest {
 	@Before
 	public void setup() {
 		this.output = new ByteArrayOutputStream();
+	}
+	@Test 
+	public void testDisplayGreeting() {
+		Menu menu = getMenuForTesting();
+		menu.displayGreeting();
+		String expected = "Welcome Babysitter!\n" + 
+						"I can help you calculate your pay for one night of work!\n\n" + 
+						"Now tell me, which family will you be working for?\n";
+		Assert.assertEquals(expected, output.toString());
 	}
 	@Test
 	public void testDisplayListOfMenuOptions() {
@@ -74,25 +78,6 @@ public class MenuTest {
 //		
 //		String expected = "You will earn $90\n";
 //		Assert.assertEquals(expected, output.toString());
-//	}
-//	@Test
-//	public void validateObjectAfterMakingChoice() {
-//		Object[] options = new Object[] {"Conan", "Colbert", "Falon"};
-//		Menu menu = getMenuForTestingWithUserInput("2\n");
-//		Object result = menu.getChoiceFromOptions(options);
-//		Assert.assertEquals("Colbert", result.toString());
-//	}
-//	@Test
-//	public void validateStartTimeInput() {
-//		Menu menu = getMenuForTestingWithUserInput("7\n");
-//		menu.getStartTimeFromUserInput();
-//		Assert.assertEquals(7, menu.getShift().getStartTime());
-//	}
-//	@Test
-//	public void validateEndTimeInput() {
-//		Menu menu = getMenuForTestingWithUserInput("10\n");
-//		menu.getEndTimeFromUserInput();
-//		Assert.assertEquals(10, menu.getShift().getEndTime());
 //	}
 	private Menu getMenuForTestingWithUserInput(String userInput) {
 		ByteArrayInputStream input = new ByteArrayInputStream(String.valueOf(userInput).getBytes());

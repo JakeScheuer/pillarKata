@@ -20,10 +20,10 @@ public class BabysitterCLI {
 	
 	public void run() {
 		while(true) {
-//			menu.displayGreeting();
+			menu.displayGreeting();
 			menu.getChoiceFromOptions();
-//			menu.getStartTimeFromUserInput();
-//			menu.getEndTimeFromUserInput();
+			menu.getStartTimeFromUserInput();
+			menu.getEndTimeFromUserInput();
 //			menu.displayResult();
 			break;
 		}
