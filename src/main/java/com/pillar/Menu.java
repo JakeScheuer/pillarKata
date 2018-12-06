@@ -70,8 +70,11 @@ public class Menu {
 		}
 		return endTime;
 	}
-//	public void displayResult() {
-//		out.println("Working for Family A from 5 to 11 will earn you $90");
-//		out.flush();
-//	}
+	public void displayResult(Payable family, Shift shift) {
+		out.print("Working for ");
+		out.print(family.getClass().getSimpleName());
+		out.print(" from "+shift.getStartTime()+" to ");
+		out.println(shift.getEndTime()+" will earn you $"+family.calculatePay(shift));
+		out.flush();
+	}
 }

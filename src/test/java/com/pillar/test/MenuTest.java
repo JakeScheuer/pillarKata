@@ -7,8 +7,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.pillar.FamilyA;
 import com.pillar.Menu;
 import com.pillar.Payable;
+import com.pillar.Shift;
 
 public class MenuTest {
 	private ByteArrayOutputStream output;
@@ -69,16 +71,17 @@ public class MenuTest {
 		int result = menu.getEndTimeFromUserInput();
 		Assert.assertEquals(10, result);
 	}
-	
-	
-//	@Test
-//	public void testDisplayResults() {
-//		Menu menu = getMenuForTesting();
-//		menu.displayResult();
-//		
-//		String expected = "You will earn $90\n";
-//		Assert.assertEquals(expected, output.toString());
-//	}
+	@Test
+	public void testDisplayResults() {
+		Menu menu = getMenuForTesting();
+		FamilyA family = new FamilyA();
+		Shift shift = new Shift();
+		shift.setStartTime(5);
+		shift.setEndTime(11);
+		menu.displayResult(family, shift);
+		String expected = "Working for FamilyA from 5 to 11 will earn you $90\n";
+		Assert.assertEquals(expected, output.toString());
+	}
 	private Menu getMenuForTestingWithUserInput(String userInput) {
 		ByteArrayInputStream input = new ByteArrayInputStream(String.valueOf(userInput).getBytes());
 		return new Menu(input, output);

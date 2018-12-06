@@ -2,29 +2,21 @@ package com.pillar;
 
 public class BabysitterCLI {
 	
-	private FamilyA familyA;
-	private FamilyB familyB;
-	private FamilyC familyC;
 	private Menu menu;
 	private Shift shift;
-	private Payable[] families;
+	private Payable family;
 
 	public BabysitterCLI(Menu menu) {
 		this.menu = menu;
-		this.familyA = new FamilyA();
-		this.familyB = new FamilyB();
-		this.familyC = new FamilyC();
 		this.shift = new Shift();
-		this.families = new Payable[] {this.familyA, this.familyB, this.familyC};
 	}
-	
 	public void run() {
 		while(true) {
 			menu.displayGreeting();
-			menu.getChoiceFromOptions();
-			menu.getStartTimeFromUserInput();
-			menu.getEndTimeFromUserInput();
-//			menu.displayResult();
+			this.family = menu.getChoiceFromOptions();
+			this.shift.setStartTime(menu.getStartTimeFromUserInput());
+			this.shift.setEndTime(menu.getEndTimeFromUserInput());
+			menu.displayResult(this.family, this.shift);
 			break;
 		}
 	}
