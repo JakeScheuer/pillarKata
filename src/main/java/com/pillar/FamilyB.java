@@ -1,6 +1,7 @@
 package com.pillar;
 
 public class FamilyB implements Payable{
+	
 	private int payOut;
 	private int[] rates = new int[] {12, 8, 16};
 	

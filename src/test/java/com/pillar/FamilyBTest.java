@@ -49,5 +49,4 @@ public class FamilyBTest {
 		shift.setEndTime(4);
 		assertEquals(80, familyB.calculatePay(shift));
 	}
-
 }

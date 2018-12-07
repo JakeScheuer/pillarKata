@@ -20,5 +20,4 @@ public class FamilyC implements Payable{
 		
 		return this.payOut;
 	}
-
 }

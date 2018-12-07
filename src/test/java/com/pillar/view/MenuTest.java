@@ -20,6 +20,7 @@ public class MenuTest {
 	public void setup() {
 		this.output = new ByteArrayOutputStream();
 	}
+	
 	@Test 
 	public void testDisplayGreeting() {
 		Menu menu = getMenuForTesting();
@@ -98,13 +99,6 @@ public class MenuTest {
 		Menu menu = getMenuForTestingWithUserInput("Y\n");
 		boolean toEnd = menu.getToRun();
 		Assert.assertEquals(true, toEnd);
-	}
-	@Test
-	public void testDisplayGoodbyeMessage() {
-		Menu menu = getMenuForTesting();
-		menu.displayGoodbyeMessage();
-		String expected = "Have a Great Shift!\n";
-		Assert.assertEquals(expected, output.toString());
 	}
 	private Menu getMenuForTestingWithUserInput(String userInput) {
 		ByteArrayInputStream input = new ByteArrayInputStream(String.valueOf(userInput).getBytes());
