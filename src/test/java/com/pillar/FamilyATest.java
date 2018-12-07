@@ -1,4 +1,4 @@
-package com.pillar.test;
+package com.pillar;
 
 import static org.junit.Assert.assertEquals;
 
@@ -24,6 +24,12 @@ public class FamilyATest {
 		shift.setStartTime(5);
 		shift.setEndTime(11);
 		assertEquals(90, familyA.calculatePay(shift));
+	}
+	@Test
+	public void testCalculatePayForFamilyA5to7() {
+		shift.setStartTime(5);
+		shift.setEndTime(7);
+		assertEquals(30, familyA.calculatePay(shift));
 	}
 	@Test
 	public void testCalculatePayForFamilyABothRatesTillMidnight() {

@@ -8,6 +8,9 @@ public class FamilyA implements Payable{
 	@Override
 	public int calculatePay(Shift shift) {
 		int hoursBefore11 = 11 - shift.getStartTime();
+		if(shift.getEndTime()<11 && shift.getEndTime()>5) {
+			hoursBefore11 = shift.calculateTotalHours();
+		}
 		this.payOut += hoursBefore11 * rates[0]; 
 		
 		if(shift.getEndTime() == 12 || shift.getEndTime() <= 4) {

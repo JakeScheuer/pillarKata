@@ -1,9 +1,15 @@
-package com.pillar;
+package com.pillar.view;
 
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.Scanner;
+
+import com.pillar.FamilyA;
+import com.pillar.FamilyB;
+import com.pillar.FamilyC;
+import com.pillar.Payable;
+import com.pillar.Shift;
 
 
 public class Menu {
@@ -16,7 +22,9 @@ public class Menu {
 		this.out = new PrintWriter(output);
 	}
 	public void displayGreeting() {
-		out.println("Welcome Babysitter!");
+		out.println();
+		out.println();
+		out.println("WELCOME BABYSITTER!");
 		out.println("I can help you calculate your pay for one night of work!");
 		out.println();
 		out.println("Now tell me, which family will you be working for?");
@@ -27,7 +35,8 @@ public class Menu {
 		out.println("1) Family A");
 		out.println("2) Family B");
 		out.println("3) Family C");
-		out.print("\nPlease choose which family you'll be working for >>> ");
+		out.println("\nPLEASE CHOOSE WHICH FAMILY YOU'LL BE WORKING FOR:");
+		out.print("(Enter a number 1 through 3) >>> \n");
 		out.flush();
 	}
 	public Payable getChoiceFromOptions() {
@@ -48,13 +57,14 @@ public class Menu {
 			} catch(NumberFormatException e) {
 				}
 			if(family == null) {
-				out.println("\n*** "+choice+" is not a valid option ***\n");
+				out.println("\n*** "+choice+" is not a valid option. Please select an option (1-3) ***\n");
 			}
 		}
 		return family;
 	}
 	public void displayStartTimePrompt() {
-		out.println("What is your start time? >>> ");
+		out.println("WHAT IS YOUR START TIME?");
+		out.println("(Enter your start time, must between 5 and 11) >>> ");
 		out.flush();
 	}
 	public int getStartTimeFromUserInput() {
@@ -70,12 +80,13 @@ public class Menu {
 			} catch(NumberFormatException e) {
 				}
 			if(startTime == 0) {
-				out.println("\n*** "+userInput+" is not a valid option ***\n");
+				out.println("\n*** "+userInput+" is not a valid start time. Please enter a time between 5 and 11 ***\n");
 			}
 		} return startTime;
 	}
 	public void displayEndTimePrompt() {
-		out.println("What is your end time? >>> ");
+		out.println("WHAT IS YOUR END TIME?");
+		out.println("(Must be after your start time and between 6 and 4) >>>");
 		out.flush();
 	}
 	public int getEndTimeFromUserInput(int startTime) {
@@ -91,7 +102,7 @@ public class Menu {
 			} catch(NumberFormatException e) {
 				}
 			if(endTime == 0) {
-				out.println("\n*** "+userInput+" is not a valid option ***\n");
+				out.println("\n*** "+userInput+" is not a valid end time. Entry must be after your start time and between 6 and 4 ***\n");
 			}
 		}
 		return endTime;
@@ -109,6 +120,7 @@ public class Menu {
 	}
 	public boolean getToRun() {
 		boolean stayOn = true;
+		
 		String gateKeeper = null;
 		while(gateKeeper == null) {
 			displayEndingOptions();
@@ -121,7 +133,7 @@ public class Menu {
 			} catch(Exception e) {
 				}
 			if (gateKeeper == null) {
-				out.println("\n*** "+userInput+" is not a valid option ***\n");
+				out.println("\n*** "+userInput+" is not a valid option. Please select Y or N ***\n");
 			}
 		}
 		if(gateKeeper.equals("N")) {
@@ -130,7 +142,13 @@ public class Menu {
 		return stayOn;
 	}
 	public void displayGoodbyeMessage() {
-		out.print("Have a Great Day!");
+		out.println();
+		out.println("   ====    =====  =====   ====   =====  =      =  ====== ");
+		out.println(" //       ||   ||||   ||||   \\\\ ||   \\\\  \\\\   // ||");
+		out.println("||	  ||   ||||   ||||    ||||===//   \\\\ //  ||====");
+		out.println("||   ==== ||   ||||   ||||    ||||    \\\\    //   ||");
+		out.println("||    ||  ||   ||||   ||||    ||||    //   //    ||");
+		out.println(" \\\\___//  ||___||||___||||___// ||___//   //     ||_____");
 		out.flush();
 	}
 }

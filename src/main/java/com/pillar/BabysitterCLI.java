@@ -1,12 +1,16 @@
 package com.pillar;
 
+import java.io.IOException;
+
+import com.pillar.view.Menu;
+
 public class BabysitterCLI {
 	
 	private Menu menu;
 	private Shift shift;
 	private Payable family;
 
-	public BabysitterCLI(Menu menu) {
+	public BabysitterCLI(Menu menu) throws IOException {
 		this.menu = menu;
 		this.shift = new Shift();
 	}
@@ -30,7 +34,12 @@ public class BabysitterCLI {
 	}
 	public static void main(String[] args) {
 		Menu menu = new Menu(System.in, System.out);
-		BabysitterCLI cli = new BabysitterCLI(menu);
-		cli.run();
+		BabysitterCLI cli;
+		try {
+			cli = new BabysitterCLI(menu);
+			cli.run();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

@@ -1,4 +1,4 @@
-package com.pillar.test;
+package com.pillar;
 
 import static org.junit.Assert.assertEquals;
 

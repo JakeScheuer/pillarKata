@@ -1,4 +1,4 @@
-package com.pillar.test;
+package com.pillar.view;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -8,11 +8,12 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.pillar.FamilyA;
-import com.pillar.Menu;
 import com.pillar.Payable;
 import com.pillar.Shift;
+import com.pillar.view.Menu;
 
 public class MenuTest {
+	
 	private ByteArrayOutputStream output;
 
 	@Before
@@ -23,7 +24,7 @@ public class MenuTest {
 	public void testDisplayGreeting() {
 		Menu menu = getMenuForTesting();
 		menu.displayGreeting();
-		String expected = "Welcome Babysitter!\n" + 
+		String expected = "\n\nWELCOME BABYSITTER!\n" + 
 						"I can help you calculate your pay for one night of work!\n\n" + 
 						"Now tell me, which family will you be working for?\n";
 		Assert.assertEquals(expected, output.toString());
@@ -36,7 +37,8 @@ public class MenuTest {
 		 		  "1) Family A\n" + 
 				  "2) Family B\n" +
 				  "3) Family C\n\n" +
-				  "Please choose which family you'll be working for >>> ";
+				  "PLEASE CHOOSE WHICH FAMILY YOU'LL BE WORKING FOR:\n" +
+				  "(Enter a number 1 through 3) >>> \n";
 		Assert.assertEquals(expected, output.toString());
 	}
 	@Test
@@ -49,7 +51,8 @@ public class MenuTest {
 	public void testDisplayStartTimePrompt() {
 		Menu menu = getMenuForTesting();
 		menu.displayStartTimePrompt();
-		String expected = "What is your start time? >>> \n";
+		String expected = "WHAT IS YOUR START TIME?\n"
+						+ "(Enter your start time, must between 5 and 11) >>> \n";
 		Assert.assertEquals(expected, output.toString());
 	}
 	@Test
@@ -62,7 +65,8 @@ public class MenuTest {
 	public void testDisplayEndTimePrompt() {
 		Menu menu = getMenuForTesting();
 		menu.displayEndTimePrompt();
-		String expected = "What is your end time? >>> \n";
+		String expected = "WHAT IS YOUR END TIME?\n"
+						+ "(Must be after your start time and between 6 and 4) >>>\n";
 		Assert.assertEquals(expected, output.toString());
 	}
 	@Test
@@ -99,7 +103,7 @@ public class MenuTest {
 	public void testDisplayGoodbyeMessage() {
 		Menu menu = getMenuForTesting();
 		menu.displayGoodbyeMessage();
-		String expected = "Have a Great Day!";
+		String expected = "Have a Great Shift!\n";
 		Assert.assertEquals(expected, output.toString());
 	}
 	private Menu getMenuForTestingWithUserInput(String userInput) {
