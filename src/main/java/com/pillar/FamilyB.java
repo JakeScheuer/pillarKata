@@ -9,6 +9,9 @@ public class FamilyB implements Payable{
 		int hoursBetween10And12 = shift.getEndTime() - 10;
 		int hoursBefore10 = 10 - shift.getStartTime();
 		int hoursAfter12 = shift.getEndTime();
+		if(shift.getEndTime() < 10 && shift.getEndTime() > 5) {
+			hoursBefore10 = shift.calculateTotalHours();
+		}
 		this.payOut += hoursBefore10 * rates[0];
 		
 		if(shift.getEndTime() > 10) {
