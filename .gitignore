@@ -1,2 +1,7 @@
 /bin/
 /target/
+.idea
+.project
+.settings
+.DS_Store
+apache-maven-3.6.0
