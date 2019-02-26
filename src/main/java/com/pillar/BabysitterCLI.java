@@ -2,17 +2,18 @@ package com.pillar;
 
 import java.io.IOException;
 
+
 import com.pillar.view.Menu;
 
 public class BabysitterCLI {
 	
 	private Menu menu;
-	private Shift shift;
-	private Payable family;
+	private com.pillar.Shift shift;
+	private com.pillar.Payable family;
 
 	public BabysitterCLI(Menu menu) throws IOException {
 		this.menu = menu;
-		this.shift = new Shift();
+		this.shift = new com.pillar.Shift();
 	}
 	public void run() {
 		menu.displayGreeting();
